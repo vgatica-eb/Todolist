@@ -20,7 +20,7 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.TodoListView.as_view(), name='list_todos'),
+    path('', views.ListMineTodoView.as_view(), name='list_todos'),
     path('create/', views.CreateTodoView.as_view(), name='create_todo'),
     path('update/<int:pk>', views.UpdateTodoView.as_view(), name='update_todo'),
     path('delete/<int:pk>', views.DeleteTodoView.as_view(), name='delete_todo'),

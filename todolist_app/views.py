@@ -10,10 +10,23 @@ from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from datetime import datetime
 
 
-class TodoListView(LoginRequiredMixin, ListView):
-    model = ToDo
+class ListMineTodoView(ListView):
+
+    def get_queryset(self):
+        return ToDo.objects.filter(user_assigned=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['ahora'] = str(datetime.now())
+        context_data['logged_user'] = self.request.user
+        return context_data
+
+
+# class TodoListView(LoginRequiredMixin, ListView):
+    # model = ToDo
 
 
 class CreateTodoView(LoginRequiredMixin, CreateView):
