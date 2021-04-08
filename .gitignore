@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # MAC file
-/*.DS_Store
+.DS_Store
 
 # Python files
-todolist/wsgi.py
+/todolist/wsgi.py
