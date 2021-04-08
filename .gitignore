@@ -132,4 +132,4 @@ dmypy.json
 .DS_Store
 
 # Python files
-wsgi.py
+.wsgi.py
